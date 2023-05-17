@@ -4,7 +4,8 @@
 주스턴트로 redux 대체한 코드 적용해서 프론트까지 마스터 하자
 
 
-import create from "zustand";
+import { create } from 'zustand';
+
 
 const useAuthStore = create((set) => ({
   user: JSON.parse(localStorage.getItem("user")) || null,
@@ -56,10 +57,9 @@ const useAuthStore = create((set) => ({
     })),
 }));
 
-export const AuthContext = useAuthStore;
 
-export const AuthContextProvider = ({ children }) => {
-  const { user } = AuthContext;
+export const AuthProvider = ({ children }) => {
+  const { user } = useAuthStore;
 
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(user));
