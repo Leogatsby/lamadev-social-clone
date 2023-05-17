@@ -36,22 +36,22 @@ const useAuthStore = create((set) => ({
       error: true,
     })),
 
-  follow: (userId) =>
+  follow: (otheruserId) =>
     set((state) => ({
       ...state,
       user: {
         ...state.user,
-        followings: [...state.user.followings, userId],
+        followings: [...state.user.followings, otheruserId],
       },
     })),
 
-  unfollow: (userId) =>
+  unfollow: (otheruserId) =>
     set((state) => ({
       ...state,
       user: {
         ...state.user,
         followings: state.user.followings.filter(
-          (following) => following !== userId
+          (following) => following !== otheruserId
         ),
       },
     })),
