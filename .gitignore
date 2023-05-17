@@ -1,1 +1,2 @@
+# Server 폴더 내의 node_modules 디렉토리 제외
 /server/node_modules/
